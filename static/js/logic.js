@@ -5,7 +5,7 @@
 // let API_KEY = "pk.eyJ1Ijoibml0aHlhMjUxMDg1IiwiYSI6ImNrYjE2MTkwaDAyengycm4wM2VmMjFuMHUifQ.SKImM9UAT5nErTT4rJxI8A";
 // Store our API endpoint inside queryUrl
 var queryUrl = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
-var tectonic_info_URL = "https://github.com/fraxen/tectonicplates/blob/master/GeoJSON/PB2002_plates.json";
+var tectonic_info_URL = "https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_orogens.json";
 // Perform a GET request to the query URL
 d3.json(queryUrl, function(data) {
   // Once we get a response, send the data.features object to the createFeatures function
@@ -31,10 +31,19 @@ function createFeatures(earthquakeData) {
   createMap(earthquakes);
 }
 
+var tectonic_info = new L.LayerGroup();
+
+d3.json(tectonic_info_URL, function(tectonicinfo){
+  L.geoJSON(tectonicinfo,
+    {
+      color: 'red',
+      weight: 2
+    }).addTo(tectonic_info);
+});
+
 function createMap(earthquakes) {
-
+  console.log(tectonic_info)
   
-
   // Define streetmap and darkmap layers
   var streetmap = L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
     attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
@@ -56,7 +65,7 @@ function createMap(earthquakes) {
     "Dark Map": darkmap
   };
 
-  var tectonic_info = new L.LayerGroup();
+  
 
   // Create overlay object to hold our overlay layer
   var overlayMaps = {
@@ -70,14 +79,31 @@ function createMap(earthquakes) {
       37.09, -95.71
     ],
     zoom: 5,
-    layers: [streetmap, earthquakes, tectonic_info]
+    layers: [darkmap, earthquakes, tectonic_info]
   });
-
   // Create a layer control
   // Pass in our baseMaps and overlayMaps
   // Add the layer control to the map
-  L.control.layers(baseMaps, overlayMaps, {
-    collapsed: false
-  }).addTo(myMap);
+  L.control.layers(baseMaps, overlayMaps).addTo(myMap);
 }
+
+function getColor(magnitude){
+  if (magnitude > 5){
+    return 'orange'
+    }else if (magnitude > 4){
+    return 'yellow'
+    }else if (magnitude > 3){
+    return 'pink'
+    }else if (magnitude > 2){
+    return 'lightgreen'
+    }else if (magnitude > 1){
+    return 'green'
+    }else{
+    return '#59C7CB'
+    }
+  };
+function getRadius(magnitude){
+  return magnitude * 2;
+  };
+  
 
