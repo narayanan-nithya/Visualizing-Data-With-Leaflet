@@ -1,11 +1,11 @@
 // var queryUrl = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
-var tectonic_info_URL = "https://github.com/fraxen/tectonicplates/blob/master/GeoJSON/PB2002_plates.json";
+// var tectonic_info_URL = "https://github.com/fraxen/tectonicplates/blob/master/GeoJSON/PB2002_plates.json";
 // //get data
 
 // let API_KEY = "pk.eyJ1Ijoibml0aHlhMjUxMDg1IiwiYSI6ImNrYjE2MTkwaDAyengycm4wM2VmMjFuMHUifQ.SKImM9UAT5nErTT4rJxI8A";
 // Store our API endpoint inside queryUrl
 var queryUrl = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
-
+var tectonic_info_URL = "https://github.com/fraxen/tectonicplates/blob/master/GeoJSON/PB2002_plates.json";
 // Perform a GET request to the query URL
 d3.json(queryUrl, function(data) {
   // Once we get a response, send the data.features object to the createFeatures function
@@ -16,12 +16,9 @@ function createFeatures(earthquakeData) {
 
   // Define a function we want to run once for each feature in the features array
   // Give each feature a popup describing the place and time of the earthquake
-  // function onEachFeature(feature, layer) {
-  //   layer.bindPopup("<h3>" + feature.properties.place +
-  //     "</h3><hr><p>" + new Date(feature.properties.time) + "</p>");
-  // }
   function onEachFeature(feature, layer) {
-    layer.bindPopup("<h3>" + feature.properties.mag +"</h3><h3>" + feature.properties.place +"</h3><hr><p>" + Date(feature.properties.time) + "</p>");
+    layer.bindPopup("<h3>Magnitude: " + feature.properties.mag +"</h3><h3>Location: " + feature.properties.place +
+      "</h3><hr><p>" + new Date(feature.properties.time) + "</p>");
   }
 
   // Create a GeoJSON layer containing the features array on the earthquakeData object
@@ -59,11 +56,12 @@ function createMap(earthquakes) {
     "Dark Map": darkmap
   };
 
+  var tectonic_info = new L.LayerGroup();
 
-  
   // Create overlay object to hold our overlay layer
   var overlayMaps = {
-    Earthquakes: earthquakes
+    Earthquakes: earthquakes,
+    Tectonics: tectonic_info
   };
 
   // Create our map, giving it the streetmap and earthquakes layers to display on load
@@ -72,7 +70,7 @@ function createMap(earthquakes) {
       37.09, -95.71
     ],
     zoom: 5,
-    layers: [streetmap, earthquakes]
+    layers: [streetmap, earthquakes, tectonic_info]
   });
 
   // Create a layer control
