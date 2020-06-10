@@ -1,18 +1,18 @@
 # Leaflet Homework - Visualizing Data with Leaflet
 <p align="center">
-  <img width="800" height="300" src="https://github.com/narayanan-nithya/Visualizing-Data-With-Leaflet/blob/master/Screen%20Shot%202020-06-09%20at%205.04.31%20PM.png">
+  <img width="800" height="500" src="https://github.com/narayanan-nithya/Visualizing-Data-With-Leaflet/blob/master/Screen%20Shot%202020-06-09%20at%205.04.31%20PM.png">
 </p>
 <p align="center">
-  <img width="800" height="300" src="https://github.com/narayanan-nithya/Visualizing-Data-With-Leaflet/blob/master/Screen%20Shot%202020-06-09%20at%205.04.52%20PM.png">
+  <img width="800" height="500" src="https://github.com/narayanan-nithya/Visualizing-Data-With-Leaflet/blob/master/Screen%20Shot%202020-06-09%20at%205.04.52%20PM.png">
 </p>
 <p align="center">
-  <img width="800" height="300" src="https://github.com/narayanan-nithya/Visualizing-Data-With-Leaflet/blob/master/Screen%20Shot%202020-06-09%20at%205.03.59%20PM.png">
+  <img width="800" height="500" src="https://github.com/narayanan-nithya/Visualizing-Data-With-Leaflet/blob/master/Screen%20Shot%202020-06-09%20at%205.03.59%20PM.png">
 </p>
 <p align="center">
-  <img width="800" height="300" src="https://github.com/narayanan-nithya/Visualizing-Data-With-Leaflet/blob/master/Screen%20Shot%202020-06-09%20at%205.04.58%20PM.png">
+  <img width="800" height="500" src="https://github.com/narayanan-nithya/Visualizing-Data-With-Leaflet/blob/master/Screen%20Shot%202020-06-09%20at%205.04.58%20PM.png">
 </p>
 <p align="center">
-  <img width="800" height="300" src="https://github.com/narayanan-nithya/Visualizing-Data-With-Leaflet/blob/master/Screen%20Shot%202020-06-09%20at%205.03.51%20PM.png">
+  <img width="800" height="500" src="https://github.com/narayanan-nithya/Visualizing-Data-With-Leaflet/blob/master/Screen%20Shot%202020-06-09%20at%205.03.51%20PM.png">
 </p>
 
 ![1-Logo](Images/1-Logo.png)
