@@ -87,23 +87,5 @@ function createMap(earthquakes) {
   L.control.layers(baseMaps, overlayMaps).addTo(myMap);
 }
 
-function getColor(magnitude){
-  if (magnitude > 5){
-    return 'orange'
-    }else if (magnitude > 4){
-    return 'yellow'
-    }else if (magnitude > 3){
-    return 'pink'
-    }else if (magnitude > 2){
-    return 'lightgreen'
-    }else if (magnitude > 1){
-    return 'green'
-    }else{
-    return '#59C7CB'
-    }
-  };
-function getRadius(magnitude){
-  return magnitude * 2;
-  };
   
 
